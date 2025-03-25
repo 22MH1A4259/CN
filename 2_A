@@ -1,29 +1,22 @@
 #include <stdio.h>
-
 int main() {
     int a[20], b[30], i, j, k, count, n;
-
     printf("Enter frame length: ");
     scanf("%d", &n);
-
     printf("Enter input frame (0's & 1's only): ");
     for (i = 0; i < n; i++)
         scanf("%d", &a[i]);
-
     i = 0; 
     j = 0; 
-
     while (i < n) {
         if (a[i] == 1) {
             count = 1;
             b[j] = a[i];
             j++;
-
             for (k = i + 1; k < n && a[k] == 1 && count < 5; k++) {
                 b[j] = a[k];
                 j++;
-                count++;
-                
+                count++;          
                 if (count == 5) { 
                     b[j] = 0;
                     j++;
@@ -36,17 +29,13 @@ int main() {
             i++;
         }
     }
-
     printf("After stuffing, the frame is: ");
     for (i = 0; i < j; i++)
-        printf("%d", b[i]);
-    
+        printf("%d", b[i]); 
     printf("\n");
     return 0;
 }
-
-
-outpu---------------> 
+output---------------> 
 Enter frame length: 10
 Enter input frame (0's & 1's only): 1 1 1 1 1 0 1 1 1 1 
 After stuffing, the frame is: 11111001111
